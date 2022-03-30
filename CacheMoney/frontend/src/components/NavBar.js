@@ -18,7 +18,7 @@ function NavBar(props) {
 					onClick={props.handleClick}
 					id="create-account"
 				>
-					Create Account
+					Open Account
 				</span>
 			</a>
 			<a href="#">
