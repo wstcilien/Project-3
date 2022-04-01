@@ -8,6 +8,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./style/GlobalStyles";
 import Toggle from "./style/Toggle";
 import { lightTheme, darkTheme } from "./style/Themes";
+import SideNav from "./SideNav.js";
 
 
 
@@ -29,6 +30,28 @@ function ProfileView(){
 		navigate("/main");
 	};
 
+	/*const updateProfilePageContent = (event) => {
+		setPage(event.target.id);
+		profilePageContentComponent(event.target.id);
+	};
+
+	const profilePageContentComponent = () => {
+		switch (page) {
+			case "sign-in":
+				return <SignInDisplay />;
+			case "address":
+				return <AddressDisplay  />;
+			case "phone":
+				return <PhoneDisplay  />;
+			case "email":
+				return <EmailDisplay  />;
+			// Add new cases here to add more navbar links
+			default:
+				return <DefaultDisplay />;
+		}
+	};*/
+
+
     return (
 		<ThemeProvider theme={themeMode}>
 			<GlobalStyles />
@@ -48,37 +71,8 @@ function ProfileView(){
 						</button>				
 					</div>
 				</div>
-				<div id="mySidenav" className="sidenav">
-					<span 
-						className="navigation-link"
-						//onClick={}
-						id="sign-in"
-						>
-							Sign-In
-					</span>
-					<span 
-						className="navigation-link"
-						//onClick={}
-						id="sign-in"
-						>
-							Address
-					</span>
-					<span 
-						className="navigation-link"
-						//onClick={}
-						id="sign-in"
-						>
-							Phone
-					</span>
-					<span 
-						className="navigation-link"
-						//onClick={}
-						id="sign-in"
-						>
-							Email
-					</span>
 				
-				</div>
+				<SideNav />
 				<div className="footer-container"> 	
 					<Footer />
 				</div>
