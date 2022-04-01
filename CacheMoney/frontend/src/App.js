@@ -6,9 +6,11 @@ import RegisterView from "./components/RegisterView.js";
 import NotFoundView from "./components/NotFoundView.js";
 import MainPageView from "./components/MainPageView";
 import TransactionFilter from "./components/Transaction/TransactionFilter";
+import ProfileView from "./components/ProfileView";
 
 function App() {
 
+	//
 
 	return (
 		<>
@@ -19,6 +21,7 @@ function App() {
 					<Route path="/register" exact element={<RegisterView />} />
 					<Route path="/main" exact element={<MainPageView />} />
 					<Route path="/transactions" exact element={<TransactionFilter />} />
+					<Route path="/profile" exact element={<ProfileView />} />
 					<Route path="*" exact element={<NotFoundView />} />
 				</Routes>
 			</Router>

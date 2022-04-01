@@ -26,6 +26,11 @@ function MainPageView2() {
 		navigate("/");
 	};
 
+	const toProfile = (event) => {
+
+		navigate("/profile");
+	};
+
 	const [theme, themeToggler, mountedComponent] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
 
@@ -60,10 +65,15 @@ function MainPageView2() {
 						</span>
 					</div>
 					<div className="main-upper-buttons">
+					<button id="profile" onClick={toProfile}>
+							{" "}
+							Profile
+						</button>
 						<button id="logout-button" onClick={handleLogout}>
 							{" "}
 							Log Out
 						</button>
+						
 
 						<Toggle
 							id="main-theme-button"

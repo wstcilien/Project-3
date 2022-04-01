@@ -39,17 +39,6 @@ function NavBar(props) {
 					Send Money
 				</span>
 			</a>
-			<div className="settings">
-				<a href="#">
-					<span
-						className="navigation-link"
-						onClick={props.handleClick}
-						id="settings"
-					>
-						Settings
-					</span>
-				</a>
-			</div>
 		</div>
 	);
 }

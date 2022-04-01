@@ -32,9 +32,9 @@ function Footer(props) {
 			</div>
 			<div id="footer-logo-container">
 				<div id="footer-logo">
-				</div>
 			</div>
 		</div>
+	</div>
 	);
 }
 export default Footer;

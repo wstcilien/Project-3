@@ -323,6 +323,12 @@ input[type="password"] {
 	flex-direction: column;
 	align-items: center;
 	padding: 0 30px;
+	
+}
+
+#footer-container {
+	position: absolute;
+	
 }
 
 #column-container {
@@ -332,6 +338,7 @@ input[type="password"] {
 	justify-content: space-between;
 	margin-top: 12px;
 	height: 100%;
+	
 }
 
 .column {
@@ -345,6 +352,7 @@ input[type="password"] {
 	width: 90%;
 	justify-content: flex-end;
 	margin-bottom: 24px;
+	
 }
 
 /*.row:after {
@@ -443,6 +451,20 @@ input[type="password"] {
 	padding-right: 30px;
 }
 
+.information-table {
+	flex-direction: row;
+
+	padding-left: 30px;
+	padding-right: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: green;
+	color: black;
+	width: 5rem;
+	height: 5rem;
+}
+
+
 .navigation-link {
 	font-size: 2rem;
 	margin-bottom: 0;
@@ -470,7 +492,7 @@ input[type="password"] {
 
 #logout-button {
 	width: 240px;
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
@@ -484,15 +506,65 @@ input[type="password"] {
 	box-sizing: border-box;
 }
 
+.profile-page-content {
+	grid-area: main;
+	width: 100%;
+	margin: auto;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+.sidenav {
+	height: 40%; /* 100% Full-height */
+	width: 150px; /* 0 width - change this with JavaScript */
+	position: relative; /* Stay in place */
+	/*display: flex;
+	/*flex-direction: row;*/
+	z-index: 1; /* Stay on top 
+	top: 1; /* Stay at the top */
+	left: 0;
+	background-color: var(--green-dark-wallstreet); /* Black*/
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding-top: 40px; /* Place content 60px from the top */
+	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+	padding: 15px 15px 15px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: white;
+	display: block;
+	transition: 0.3s;
+	
+  }
+
 .main-upper-buttons {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
+	
+}
+
+#profile {
+	display: flex;
+	flex-direction: row;
+	float: left;
+	width:100px;
+	height:50px;
+}
+
+#logout-button {
+	display: flex;
+	flex-direction: row;
+	width:75px;
+	height:25px;
 }
 
 #main-theme-button {
-	width: 240px;
-	height: 3rem;
-	font-size: 1.5rem;
+	width: 50px;
+	height: 2rem;
+	font-size: 1.0rem;
 	padding: 0;
 	margin-left: auto;
 	margin-right: auto;
@@ -1028,6 +1100,7 @@ Media queries for reactive views mqfull
 	.navigation-bar {
 		column-gap: 24px;
 	}
+
 
 	/* login view 1080px lv1080 */
 	.login-inner-container {
