@@ -45,17 +45,39 @@ function ProfileView(){
 						<button id="logout-button" onClick={handleLogout}>
 							{" "}
 							Log Out
-						</button>	
-							
-
-						
+						</button>				
 					</div>
 				</div>
 				<div id="mySidenav" className="sidenav">
-						<a href="#">Sign-in</a>
-						<a href="#">Address</a>
-						<a href="#">Phone</a>
-						<a href="#">Email</a>	
+					<span 
+						className="navigation-link"
+						//onClick={}
+						id="sign-in"
+						>
+							Sign-In
+					</span>
+					<span 
+						className="navigation-link"
+						//onClick={}
+						id="sign-in"
+						>
+							Address
+					</span>
+					<span 
+						className="navigation-link"
+						//onClick={}
+						id="sign-in"
+						>
+							Phone
+					</span>
+					<span 
+						className="navigation-link"
+						//onClick={}
+						id="sign-in"
+						>
+							Email
+					</span>
+				
 				</div>
 				<div className="footer-container"> 	
 					<Footer />
