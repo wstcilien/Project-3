@@ -7,18 +7,20 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./style/GlobalStyles";
 import { lightTheme, darkTheme } from "./style/Themes";
 import SideNav from "./SideNav.js";
-/*import DefaultDisplay from "./DefaultDisplay.js";
+import DefaultDisplay from "./DefaultDisplay.js";
 import EmailDisplay from "./EmailDisplay.js";
 import PhoneDisplay from "./PhoneDisplay.js";
 import AddressDisplay from "./AddressDisplay.js";
 import SignInDisplay from "./SignInDisplay.js";
-*/
+import Toggle from "./style/Toggle";
+
+
 
 
 function ProfileView(){
 	const navigate = useNavigate();
 
-	//const [page, setPage] = useState("sign-in")
+	const [page, setPage] = useState("sign-in");
 
 	const handleLogout = (event) => {
 		userStore.dispatch({
@@ -35,51 +37,70 @@ function ProfileView(){
 
 	const [theme, themeToggler, mountedComponent] = useDarkMode();
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
+	if (!mountedComponent) return <div />;
 
 
-	/*const updateProfilePageContent = (event) => {
-		//setPage(event.target.id);
+	const updateProfilePageContent = (event) => {
+		setPage(event.target.id);
 		profilePageContentComponent(event.target.id);
-	};*/
+	};
+	
 
-	/*const profilePageContentComponent = () => {
+	const profilePageContentComponent = () => {
 		switch (page) {
 			case "sign-in":
-				return <SignInDisplay />;
+				return <SignInDisplay handleClick={updateProfilePageContent} />;
 			case "address":
-				return <AddressDisplay  />;
+				return <AddressDisplay handleClick={updateProfilePageContent} />;
 			case "phone":
-				return <PhoneDisplay  />;
+				return <PhoneDisplay handleClick={updateProfilePageContent} />;
 			case "email":
-				return <EmailDisplay  />;
-			// Add new cases here to add more navbar links
+				return <EmailDisplay handleClick={updateProfilePageContent} />;
 			default:
-				return <DefaultDisplay />;
+				return <DefaultDisplay handleClick={updateProfilePageContent} />;
 		}
-	};*/
+	};
+	
+//<SideNav handleClick={updateProfilePageContent} />
 
+	/*<Toggle
+		id="main-theme-button"
+		theme={theme}
+		toggleTheme={themeToggler}
+	/>*/
+
+	<div className="profile-page-content">			
+		{profilePageContentComponent()}
+	</div>
+				
 
     return (
 		<ThemeProvider theme={themeMode}>
 			<GlobalStyles />
 			<div className="profile-page-container container-view">
 				<div className="header">
-				<button id="main-page-button" onClick={toMain}>
-							{" "}
-							Home
-						</button>
+			
+					<button id="main-page-button" onClick={toMain}>
+						{" "}
+						Home
+					</button>
 					<div className="header-welcome-box">
 						Profile
 					</div>
 					<div className="main-upper-buttons">
-						<button id="logout-button" onClick={handleLogout}>
+						<button id="logout-button" >
 							{" "}
 							Log Out
 						</button>				
 					</div>
 				</div>
 				
-				<SideNav  />
+				
+				<SideNav handleClick={updateProfilePageContent} />
+
+				<div className="profile-page-content">
+					{profilePageContentComponent()}
+				</div>
 				
 				<Footer />	
 			</div>

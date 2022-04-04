@@ -506,13 +506,7 @@ input[type="password"] {
 	box-sizing: border-box;
 }
 
-.profile-page-content {
-	grid-area: main;
-	width: 100%;
-	margin: auto;
-	padding-top: 20px;
-	box-sizing: border-box;
-}
+
 
 .sidenav {
 	height: 50%; /* 100% Full-height */
@@ -553,13 +547,7 @@ input[type="password"] {
 	
 }
 
-#profile {
-	display: flex;
-	flex-direction: row;
-	float: left;
-	width:100px;
-	height:50px;
-}
+
 
 #logout-button {
 	display: flex;
@@ -960,6 +948,39 @@ input[type="password"] {
 }
 
 /* Create Account end */
+
+/*Profile stuff*/
+.profile-page-content {
+	grid-area: main;
+	width: 100%;
+	margin: auto;
+	padding-top: 20px;
+	box-sizing: border-box;
+}
+
+#profile {
+	display: flex;
+	flex-direction: row;
+	float: left;
+	width:100px;
+	height:50px;
+}
+
+.profile-page-content {
+	background-color: blue;
+	margin: auto;
+	width: 60%;
+	border: 5px solid #FFFF00;
+	padding: 10px;
+	position: absolute;
+	top: 17%;
+	left: 25%;
+	float: right;
+	height: 40%;
+	
+}
+
+
 
 /* Transaction tcfull */
 .transaction-container {

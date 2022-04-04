@@ -5,7 +5,7 @@ function SideNav(props) {
         <div id="mySidenav" className="sidenav">
 			<span 
     			className="navigation-link"
-				//onClick={}
+				onClick={props.onClick}
 				id="sign-in"
 			>
 				Sign-In
@@ -13,7 +13,7 @@ function SideNav(props) {
 		
         	<span 
 				className="navigation-link"
-				//onClick={}
+				onClick={props.onClick}
 				id="address"
 			>
 				Address
@@ -21,7 +21,7 @@ function SideNav(props) {
 		
         	<span 
 		    	className="navigation-link"
-				//onClick={}
+				onClick={props.onClick}
 				id="phone"
 			>
 				Phone
@@ -29,7 +29,7 @@ function SideNav(props) {
 			
         	<span 
 				className="navigation-link"
-				//onClick={}
+				onClick={props.onClick}
 				id="email"
 			>
 				Email

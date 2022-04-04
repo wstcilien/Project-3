@@ -38,7 +38,8 @@ function MainPageView2() {
 
 	const updateMainPageContent = (event) => {
 		setPage(event.target.id);
-		mainPageContentComponent(event.target.id);
+		//mainPageContentComponent(event.target.id);
+		mainPageContentComponent(page);
 	};
 
 	const mainPageContentComponent = () => {
@@ -83,12 +84,11 @@ function MainPageView2() {
 					</div>
 				</div>
 
-				{/* <Navigation /> */}
+				
 
 				<NavBar handleClick={updateMainPageContent} />
 
 				<div className="main-page-content">
-					{/******* Insert body content here ********/}
 					{mainPageContentComponent()}
 				</div>
 

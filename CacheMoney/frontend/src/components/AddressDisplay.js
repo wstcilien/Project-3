@@ -5,7 +5,7 @@ function AddressDisplay(){
 
     return (
         <div className="address-container">
-            <p>dhfidfhsjsdhfidhrfi</p>
+            <p>address</p>
         </div>
     )
 }
