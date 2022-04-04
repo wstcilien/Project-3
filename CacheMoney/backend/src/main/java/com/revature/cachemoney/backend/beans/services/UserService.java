@@ -93,6 +93,69 @@ public class UserService {
         return false;
     }
 
+    /**
+     *  The service layer method for updating a user
+     * @param user The user object containing the id and the fields to be updated.
+     * @param oldPassword The old password used only if the password is being update. Checked against the password in the database.
+     * @return Whether the update is successful or not.
+     */
+    public Boolean patchUser(User user, String oldPassword) {
+        // Check to see if a user with the given id exists. If the user does not the update fails.
+        User userToUpdate = getUserById(user.getUserId()).orElse(null);
+        if(userToUpdate == null) {
+            return false;
+        }
+        // Checks if each of the fields was passed in and then sets them to update the object in the database.
+        if(user.getFirstName() != null) {
+            userToUpdate.setFirstName(user.getFirstName());
+        }
+        if(user.getLastName() != null) {
+            userToUpdate.setLastName(user.getLastName());
+        }
+        if(user.getEmail() != null) {
+            userToUpdate.setEmail(user.getEmail().toLowerCase());
+        }
+        if(user.getUsername() != null) {
+            userToUpdate.setUsername(user.getUsername().toLowerCase());
+        }
+        if(user.getPassword() != null) {
+            // Checks if the old password provided is the same as the one stored in the database.
+            // If not the update fails.
+            if(passwordEncoder.passwordEncoder().encode(oldPassword) != userToUpdate.getPassword())
+            {
+                return false;
+            }
+            userToUpdate.setPassword(user.getPassword());
+            // Encodes the new password so that way the correct entry can be entered in the database.
+            // Both if the password is updated as well as if it does not.
+            user.setPassword(passwordEncoder.passwordEncoder().encode(user.getPassword()));
+        } else {
+            // Stores the encrypted old password in the passed in user object and sets the
+            // password to a dummy one. This is done to pass the validation method if the
+            // password is not being updated.
+            user.setPassword(userToUpdate.getPassword());
+            userToUpdate.setPassword("dummyinfo");
+        }
+        if(areCredentialsValid(userToUpdate)) {
+            // Places the correct encrypted password to be placed in the database.
+            userToUpdate.setPassword(user.getPassword());
+            try {
+                userRepo.save(userToUpdate);
+            } catch(Exception e) {
+                // Catch is for any errors updating the entry in the database.
+                // The most likely causes would be that the username or email
+                // already exist in the database. This means that the entire
+                // update fails.
+                return false;
+            }
+            return true;
+        } else {
+            // Update fails if the credentials are invalid.
+            return false;
+        }
+
+    }
+
     // DELETE a user by ID
     public Boolean deleteUserById(Integer id) {
         try{

@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * @author Alvin Frierson, Brian Gardner, Cody Gonsowski, & Jeffrey Lor
  */
 @RestController
-@RequestMapping("/users")
+@RequestMapping("users")
 public class UserController {
     private final UserService userService;
     private final JwtUtil jwtUtil;
@@ -38,7 +38,7 @@ public class UserController {
 	 * 
 	 * @return List of all Users
 	 */
-    @GetMapping(value = "/all")
+    @GetMapping(value = "all")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
@@ -73,6 +73,22 @@ public class UserController {
     }
 
     /**
+     *  Updates the provided fields of the user. Requires the oldPassword param to update password.
+     * @param token The JSON Web Token for the current session.
+     * @param userId The id of the user to update
+     * @param oldPassword The old password if updating the password to verify that they know the old password.
+     * @param user The user object that will only have the fields to be update being set. The rest will be null.
+     * @return Whether the update was successful or not.
+     */
+    @PatchMapping
+    @RequireJwt
+    public Boolean updateUser(@RequestHeader(name= "token") String token, @RequestHeader(name="userId") Integer userId,
+                              @RequestHeader(name="oldPassword", required = false) String oldPassword, @RequestBody User user) {
+        user.setUserId(userId);
+        return userService.patchUser(user, oldPassword);
+    }
+
+    /**
      * DELETE a User with provided ID.
      * Returns a bad request if the DELETE is unsuccessful.
      * 
@@ -99,7 +115,7 @@ public class UserController {
      * @return User object & its associated JWT
      * @throws JsonProcessingException
      */
-    @PostMapping(value = "/login")
+    @PostMapping(value = "login")
     public ResponseEntity<String> login(@RequestBody User user) throws JsonProcessingException {
         // has internal checking to see if user is valid
         User tempUser = userService.getUserByUsername(user);
