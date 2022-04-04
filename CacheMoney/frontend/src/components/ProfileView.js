@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Footer from "./Footer.js";
 import userStore from "../store/Store.js";
-import { useNavigate } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import { useDarkMode } from "./style/useDarkMode";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./style/GlobalStyles";
@@ -99,7 +99,13 @@ function ProfileView(){
 				<SideNav handleClick={updateProfilePageContent} />
 
 				<div className="profile-page-content">
-					{profilePageContentComponent()}
+					<Routes>
+						<Route path="signin" element={<SignInDisplay />}> </Route>
+						<Route path="address" element={<AddressDisplay />}> </Route>
+						<Route path="phone" element={<PhoneDisplay />}> </Route>
+						<Route path="email" element={<EmailDisplay />}> </Route>
+					</Routes>
+					
 				</div>
 				
 				<Footer />	

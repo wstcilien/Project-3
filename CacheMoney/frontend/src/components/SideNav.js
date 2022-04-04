@@ -1,39 +1,44 @@
 import React from "react";
+import { Link } from "react-router-dom";
 function SideNav(props) {
 
     return (
         <div id="mySidenav" className="sidenav">
-			<span 
+			<Link to="/profile/signin"
     			className="navigation-link"
-				onClick={props.onClick}
+				
 				id="sign-in"
+			
 			>
 				Sign-In
-			</span>
+			</Link>
 		
-        	<span 
-				className="navigation-link"
-				onClick={props.onClick}
-				id="address"
+        	<Link to="/profile/address"
+    			className="navigation-link"
+				
+				id="sign-in"
+			
 			>
 				Address
-			</span>
+			</Link>
 		
-        	<span 
-		    	className="navigation-link"
-				onClick={props.onClick}
-				id="phone"
+        	<Link to="/profile/phone"
+    			className="navigation-link"
+				
+				id="sign-in"
+			
 			>
 				Phone
-			</span>
+			</Link>
 			
-        	<span 
-				className="navigation-link"
-				onClick={props.onClick}
-				id="email"
+        	<Link to="/profile/email"
+    			className="navigation-link"
+				
+				id="sign-in"
+			
 			>
 				Email
-			</span>
+			</Link>
 				
 	    </div>
     );

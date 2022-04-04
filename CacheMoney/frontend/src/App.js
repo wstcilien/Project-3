@@ -21,7 +21,7 @@ function App() {
 					<Route path="/register" exact element={<RegisterView />} />
 					<Route path="/main" exact element={<MainPageView />} />
 					<Route path="/transactions" exact element={<TransactionFilter />} />
-					<Route path="/profile" exact element={<ProfileView />} />
+					<Route path="/profile/*" exact element={<ProfileView />} />
 					<Route path="*" exact element={<NotFoundView />} />
 				</Routes>
 			</Router>
