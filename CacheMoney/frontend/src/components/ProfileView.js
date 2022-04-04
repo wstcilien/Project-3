@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 import Footer from "./Footer.js";
 import userStore from "../store/Store.js";
-import InfoTable from "./InfoTable";
 import { useNavigate } from "react-router-dom";
 import { useDarkMode } from "./style/useDarkMode";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "./style/GlobalStyles";
-import Toggle from "./style/Toggle";
 import { lightTheme, darkTheme } from "./style/Themes";
 import SideNav from "./SideNav.js";
-
+/*import DefaultDisplay from "./DefaultDisplay.js";
+import EmailDisplay from "./EmailDisplay.js";
+import PhoneDisplay from "./PhoneDisplay.js";
+import AddressDisplay from "./AddressDisplay.js";
+import SignInDisplay from "./SignInDisplay.js";
+*/
 
 
 function ProfileView(){
 	const navigate = useNavigate();
-    const [theme, themeToggler, mountedComponent] = useDarkMode();
-    const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+	//const [page, setPage] = useState("sign-in")
 
 	const handleLogout = (event) => {
 		userStore.dispatch({
@@ -30,12 +33,16 @@ function ProfileView(){
 		navigate("/main");
 	};
 
-	/*const updateProfilePageContent = (event) => {
-		setPage(event.target.id);
-		profilePageContentComponent(event.target.id);
-	};
+	const [theme, themeToggler, mountedComponent] = useDarkMode();
+	const themeMode = theme === "light" ? lightTheme : darkTheme;
 
-	const profilePageContentComponent = () => {
+
+	/*const updateProfilePageContent = (event) => {
+		//setPage(event.target.id);
+		profilePageContentComponent(event.target.id);
+	};*/
+
+	/*const profilePageContentComponent = () => {
 		switch (page) {
 			case "sign-in":
 				return <SignInDisplay />;
@@ -72,10 +79,9 @@ function ProfileView(){
 					</div>
 				</div>
 				
-				<SideNav />
-				<div className="footer-container"> 	
-					<Footer />
-				</div>
+				<SideNav  />
+				
+				<Footer />	
 			</div>
 		</ThemeProvider>
 	);

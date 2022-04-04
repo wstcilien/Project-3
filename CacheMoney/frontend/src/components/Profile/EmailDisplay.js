@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-function SignInDisplay(){
+function EmailDisplay(){
     //const [account, setAccount] = useState({});
 
     return (
-        <div className="sign-in-container">
+        <div className="email-container">
             <p>dhfidfhsjsdhfidhrfi</p>
         </div>
     )
 }
 
-export default SignInDisplay;
+export default EmailDisplay;
