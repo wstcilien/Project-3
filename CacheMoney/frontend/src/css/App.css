@@ -327,7 +327,10 @@ input[type="password"] {
 }
 
 #footer-container {
-	position: absolute;
+	position: relative;
+	overflow: hidden;
+	/*bottom: 0%;*/
+	/*padding-top: 20%;*/
 	
 }
 
@@ -509,33 +512,32 @@ input[type="password"] {
 
 
 .sidenav {
-	height: 50%; /* 100% Full-height */
+	height: 100%; /* 100% Full-height */
 	width: 150px; /* 0 width - change this with JavaScript */
-	position: relative; /* Stay in place */
-	z-index: 1; /* Stay on top */
-	left: 0;
+	top: 14.8%;
+	left: 0%;
+	position: fixed; /* Stay in place */
 	background-color: var(--green-dark-wallstreet); /* Black*/
 	overflow-x: hidden; /* Disable horizontal scroll */
 	padding-top: 40px; /* Place content 60px from the top */
-	padding-bottom: 40px; /* Place content 60px from the top */
-	transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+	padding-bottom: 400px; /* Place content 60px from the top */
+	/*transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
 	/*grid-area: navigation;*/
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-content: flex-end;
-	column-gap: 20px;
+	/*column-gap: 20px;*/
 	box-sizing: border-box;
 	padding-left: 30px;
 	padding-right: 30px;
 }
   
   /* The navigation menu links */
-  .sidenav a {
-	padding: 8px 8px 8px 32px;
+  .sidenav-button {
+	padding: 0% 10% 10% 10;
 	text-decoration: none;
 	font-size: 25px;
-	color: white;
 	display: block;
 	transition: 0.3s;
 	
@@ -950,13 +952,23 @@ input[type="password"] {
 /* Create Account end */
 
 /*Profile stuff*/
-.profile-page-content {
-	grid-area: main;
-	width: 100%;
+.profile-page-container {
+	border: #6c896a;
+	width: 60%;
+	padding: 0px;
+	position: absolute;	
 	margin: auto;
-	padding-top: 20px;
-	box-sizing: border-box;
+	overflow: hidden;
+	border: 3px solid #fff;
+    /*padding: 20px;*/
 }
+
+
+.container-child {
+   /* width: 50%;*/
+    /*float: left;*/
+    
+} 
 
 #profile {
 	display: flex;
@@ -966,11 +978,12 @@ input[type="password"] {
 	height:50px;
 }
 
-.profile-page-content {
-	background-color: blue;
+
+/*.profile-page-content {
+	/*background-color: blue;
 	margin: auto;
 	width: 60%;
-	border: 5px solid #FFFF00;
+	/*border: 5px solid #FFFF00;
 	padding: 10px;
 	position: absolute;
 	top: 17%;
@@ -978,9 +991,78 @@ input[type="password"] {
 	float: right;
 	height: 40%;
 	
+}*/
+
+.address-container {
+	/*display: flex;
+	justify-content: center;*/
+	position: fixed;
+	left: 15%;
+	color: #4c4c4b;
+	font-size: 25pt;
+	top: 15%;
+	
+}
+/*.address-display {
+	border-radius: 10px;
+	width: 480px;
+	height: 370px;
+	display: flex;
+	flex-flow: column;
+	justify-content: left;
+	align-items: left;
+	color: gray;
+	
+	position: relative;
+}*/
+
+.phone-container {
+	/*background-color: blue;*/
+	/*width: 30%;*/
+	/*border: 5px solid #FFFF00;*/
+	position: fixed;
+	top: 16%;
+	left: 35%;
+	float: right;
+	
+	
+}
+.phone-display {
+	border-radius: 10px;
+	width: 480px;
+	height: 350px;
+	display: flex;
+	flex-flow: column;
+	justify-content: left;
+	align-items: left;
+	color: white;
+	background-color: #6c896a;
+	position: absolute;
 }
 
-
+.email-container {
+	/*background-color: blue;*/
+	/*width: 30%;*/
+	/*border: 5px solid #FFFF00;*/
+	position: relative;
+	top: 16%;
+	left: 35%;
+	float: right;
+	
+	
+}
+.email-display {
+	border-radius: 10px;
+	width: 480px;
+	height: 350px;
+	display: flex;
+	flex-flow: column;
+	justify-content: left;
+	align-items: left;
+	color: white;
+	background-color: #6c896a;
+	position: absolute;
+}
 
 /* Transaction tcfull */
 .transaction-container {
@@ -1026,6 +1108,10 @@ th {
 td {
 	border-top: 1px solid;
 	border-bottom: 1px solid;
+}
+
+hr {
+	width: 35em;
 }
 
 .positive_balance,

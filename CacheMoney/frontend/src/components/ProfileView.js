@@ -40,13 +40,13 @@ function ProfileView(){
 	if (!mountedComponent) return <div />;
 
 
-	const updateProfilePageContent = (event) => {
+/*	const updateProfilePageContent = (event) => {
 		setPage(event.target.id);
 		profilePageContentComponent(event.target.id);
-	};
+	};*/
 	
 
-	const profilePageContentComponent = () => {
+	/*const profilePageContentComponent = () => {
 		switch (page) {
 			case "sign-in":
 				return <SignInDisplay handleClick={updateProfilePageContent} />;
@@ -59,7 +59,7 @@ function ProfileView(){
 			default:
 				return <DefaultDisplay handleClick={updateProfilePageContent} />;
 		}
-	};
+	};*/
 	
 //<SideNav handleClick={updateProfilePageContent} />
 
@@ -69,15 +69,16 @@ function ProfileView(){
 		toggleTheme={themeToggler}
 	/>*/
 
-	<div className="profile-page-content">			
+	/*<div className="profile-page-content">			
 		{profilePageContentComponent()}
-	</div>
+	</div>*/
 				
+	//<SideNav handleClick={updateProfilePageContent} />
 
     return (
 		<ThemeProvider theme={themeMode}>
 			<GlobalStyles />
-			<div className="profile-page-container container-view">
+			<div className="container-view">
 				<div className="header">
 			
 					<button id="main-page-button" onClick={toMain}>
@@ -96,19 +97,20 @@ function ProfileView(){
 				</div>
 				
 				
-				<SideNav handleClick={updateProfilePageContent} />
-
-				<div className="profile-page-content">
-					<Routes>
-						<Route path="signin" element={<SignInDisplay />}> </Route>
-						<Route path="address" element={<AddressDisplay />}> </Route>
-						<Route path="phone" element={<PhoneDisplay />}> </Route>
-						<Route path="email" element={<EmailDisplay />}> </Route>
-					</Routes>
-					
+				<div className="profile-page-container">
+					<div className="container-child">
+						<SideNav  />
+					</div>
+					<div className="container-child"> 
+						<Routes>
+							<Route path="signin" element={<SignInDisplay />}> </Route>
+							<Route path="address" element={<AddressDisplay />}> </Route>
+							<Route path="phone" element={<PhoneDisplay />}> </Route>
+							<Route path="email" element={<EmailDisplay />}> </Route>
+						</Routes>
+					</div>
 				</div>
 				
-				<Footer />	
 			</div>
 		</ThemeProvider>
 	);
