@@ -4,49 +4,59 @@ function SideNav(props) {
 
     return (
         <div id="mySidenav" className="sidenav">
-			<span className="sidenav-button">
-				<Link to="/profile/signin"
-					className="navigation-link"
+			<button className="sidenav-button">
+				<Link to="/profile/username"
+					className="page-link"
 					
-					id="sign-in"
+					id="username"
 				>
 			
-					Sign-In
+					Username
 				</Link>
-			</span>
-			
-			<span className="sidenav-button">
-				<Link to="/profile/address"
-					className="navigation-link"
+			</button>
+			<button className="sidenav-button">
+				<Link to="/profile/password"
+					className="page-link"
 					
-					id="sign-in"
+					id="password"
+				>
+			
+					Password
+				</Link>
+			</button>
+			
+			<button className="sidenav-button">
+				<Link to="/profile/address"
+					className="page-link"
+					
+					id="address"
 				
 				>
 					Address
 				</Link>
-			</span>
+			</button>
 
-			<span className="sidenav-button">
+			<button className="sidenav-button">
 				<Link to="/profile/phone"
-					className="navigation-link"
+					className="page-link"
 					
-					id="sign-in"
+					id="phone"
 				
 				>
 					Phone
 				</Link>
-			</span>
+			</button>
 			
-			<span className="sidenav-button">
+			<button className="sidenav-button">
 				<Link to="/profile/email"
-					className="navigation-link"
+					className="page-link"
 					
-					id="sign-in"
+					id="email"
 				
 				>
 					Email
 				</Link>
-			</span>
+			</button>
 				
 	    </div>
     );

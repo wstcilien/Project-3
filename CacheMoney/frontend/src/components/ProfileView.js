@@ -11,7 +11,8 @@ import DefaultDisplay from "./DefaultDisplay.js";
 import EmailDisplay from "./EmailDisplay.js";
 import PhoneDisplay from "./PhoneDisplay.js";
 import AddressDisplay from "./AddressDisplay.js";
-import SignInDisplay from "./SignInDisplay.js";
+import UsernameDisplay from "./UsernameDisplay.js";
+import PasswordDisplay from "./PasswordDisplay.js";
 import Toggle from "./style/Toggle";
 
 
@@ -20,7 +21,7 @@ import Toggle from "./style/Toggle";
 function ProfileView(){
 	const navigate = useNavigate();
 
-	const [page, setPage] = useState("sign-in");
+	let userData = userStore.getState().userReducer;
 
 	const handleLogout = (event) => {
 		userStore.dispatch({
@@ -39,47 +40,12 @@ function ProfileView(){
 	const themeMode = theme === "light" ? lightTheme : darkTheme;
 	if (!mountedComponent) return <div />;
 
-
-/*	const updateProfilePageContent = (event) => {
-		setPage(event.target.id);
-		profilePageContentComponent(event.target.id);
-	};*/
-	
-
-	/*const profilePageContentComponent = () => {
-		switch (page) {
-			case "sign-in":
-				return <SignInDisplay handleClick={updateProfilePageContent} />;
-			case "address":
-				return <AddressDisplay handleClick={updateProfilePageContent} />;
-			case "phone":
-				return <PhoneDisplay handleClick={updateProfilePageContent} />;
-			case "email":
-				return <EmailDisplay handleClick={updateProfilePageContent} />;
-			default:
-				return <DefaultDisplay handleClick={updateProfilePageContent} />;
-		}
-	};*/
-	
-//<SideNav handleClick={updateProfilePageContent} />
-
-	/*<Toggle
-		id="main-theme-button"
-		theme={theme}
-		toggleTheme={themeToggler}
-	/>*/
-
-	/*<div className="profile-page-content">			
-		{profilePageContentComponent()}
-	</div>*/
-				
-	//<SideNav handleClick={updateProfilePageContent} />
-
     return (
 		<ThemeProvider theme={themeMode}>
-			<GlobalStyles />
+			
 			<div className="container-view">
 				<div className="header">
+					<GlobalStyles />
 			
 					<button id="main-page-button" onClick={toMain}>
 						{" "}
@@ -103,7 +69,8 @@ function ProfileView(){
 					</div>
 					<div className="container-child"> 
 						<Routes>
-							<Route path="signin" element={<SignInDisplay />}> </Route>
+							<Route path="username" element={<UsernameDisplay />}> </Route>
+							<Route path="password" element={<PasswordDisplay />}> </Route>
 							<Route path="address" element={<AddressDisplay />}> </Route>
 							<Route path="phone" element={<PhoneDisplay />}> </Route>
 							<Route path="email" element={<EmailDisplay />}> </Route>

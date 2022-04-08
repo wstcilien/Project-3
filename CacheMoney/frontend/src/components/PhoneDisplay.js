@@ -5,12 +5,12 @@ function PhoneDisplay(){
 
     return (
         <div className="phone-outer-container"> 
-        <div className="phone-container">
-            <div className="phone-display">
-                <p className="account_create_form_header">Phone</p>    
+            <div className="content-container">
+                <p>Phone</p>    
+                <hr></hr>
+                
             </div>
         </div>
-    </div>
     )
 }
 

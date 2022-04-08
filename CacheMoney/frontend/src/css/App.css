@@ -491,6 +491,7 @@ input[type="password"] {
 	color: var(--light-element);
 	font-size: 2.5rem;
 	width: 200px;
+	
 }
 
 #logout-button {
@@ -513,35 +514,38 @@ input[type="password"] {
 
 .sidenav {
 	height: 100%; /* 100% Full-height */
-	width: 150px; /* 0 width - change this with JavaScript */
+	width: 200px; /* 0 width - change this with JavaScript */
 	top: 14.8%;
 	left: 0%;
 	position: fixed; /* Stay in place */
-	background-color: var(--green-dark-wallstreet); /* Black*/
-	overflow-x: hidden; /* Disable horizontal scroll */
-	padding-top: 40px; /* Place content 60px from the top */
-	padding-bottom: 400px; /* Place content 60px from the top */
-	/*transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-	/*grid-area: navigation;*/
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-content: flex-end;
-	/*column-gap: 20px;*/
+	background-color: #f0f5f2; /* Black*/
 	box-sizing: border-box;
-	padding-left: 30px;
-	padding-right: 30px;
 }
   
   /* The navigation menu links */
   .sidenav-button {
-	padding: 0% 10% 10% 10;
-	text-decoration: none;
-	font-size: 25px;
-	display: block;
-	transition: 0.3s;
+	width: 100%;
+	font-size: 15pt;
+	border-radius: 0%;
+	
+	/*left: 0%;*/
+	padding-right: 0%;
+	background-color: #f0f5f2;
+	/*transition: 0.3s;*/
 	
   }
+
+  #dropdown {
+
+  }
+
+  .page-link{
+	  left: 0%;
+	  /*border-color: #f6ba65;*/
+
+  }
+  
+
 
 .main-upper-buttons {
 	display: flex;
@@ -1016,53 +1020,21 @@ input[type="password"] {
 	position: relative;
 }*/
 
-.phone-container {
+.content-container {
 	/*background-color: blue;*/
 	/*width: 30%;*/
 	/*border: 5px solid #FFFF00;*/
 	position: fixed;
-	top: 16%;
-	left: 35%;
-	float: right;
+	left: 15%;
+	color: #4c4c4b;
+	font-size: 25pt;
+	top: 15%;
+	/*background-color: #dce3df;*/
 	
 	
-}
-.phone-display {
-	border-radius: 10px;
-	width: 480px;
-	height: 350px;
-	display: flex;
-	flex-flow: column;
-	justify-content: left;
-	align-items: left;
-	color: white;
-	background-color: #6c896a;
-	position: absolute;
 }
 
-.email-container {
-	/*background-color: blue;*/
-	/*width: 30%;*/
-	/*border: 5px solid #FFFF00;*/
-	position: relative;
-	top: 16%;
-	left: 35%;
-	float: right;
-	
-	
-}
-.email-display {
-	border-radius: 10px;
-	width: 480px;
-	height: 350px;
-	display: flex;
-	flex-flow: column;
-	justify-content: left;
-	align-items: left;
-	color: white;
-	background-color: #6c896a;
-	position: absolute;
-}
+
 
 /* Transaction tcfull */
 .transaction-container {
@@ -1207,9 +1179,9 @@ Media queries for reactive views mqfull
 		margin-top: 12px;
 	}
 
-	.navigation-link {
+	/*.navigation-link {
 		font-size: 18px;
-	}
+	}*/
 
 	.navigation-bar {
 		column-gap: 24px;
