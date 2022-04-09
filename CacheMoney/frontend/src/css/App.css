@@ -1033,7 +1033,15 @@ input[type="password"] {
 	
 	
 }
-
+#errorMessage{
+	color: #cc3040;
+	text-align: center;
+	font-size: 20px;
+}
+#securityMessage{
+	text-align: center;
+	font-size: 20px;
+}
 
 
 /* Transaction tcfull */
